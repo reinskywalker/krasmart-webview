@@ -24,7 +24,7 @@ import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatDelegate
-import imrankst1221.website.`in`.webview.R
+import com.airbnb.lottie.LottieAnimationView
 import java.io.File
 import java.io.IOException
 import java.security.NoSuchAlgorithmException
@@ -35,14 +35,14 @@ import java.util.*
 import javax.crypto.*
 import javax.crypto.spec.SecretKeySpec
 
+
 class MainActivity : Activity() {
     private lateinit var mContext: Context
     internal var mLoaded = false
-    internal var URL = "http://202.149.87.50:30083/"
+    private var endpoint = "http://202.149.87.50:30083/"
     private var mCameraPhotoPath: String? = null
     private var mFilePathCallback: ValueCallback<Array<Uri>>? = null
-    internal var doubleBackToExitPressedOnce = false
-
+     private var doubleBackToExitPressedOnce = false
     private lateinit var btnTryAgain: Button
     private lateinit var mWebView: WebView
     private lateinit var prgs: ProgressBar
@@ -50,6 +50,7 @@ class MainActivity : Activity() {
     private lateinit var layoutSplash: RelativeLayout
     private lateinit var layoutWebview: RelativeLayout
     private lateinit var layoutNoInternet: RelativeLayout
+
 
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -74,6 +75,7 @@ class MainActivity : Activity() {
             layoutNoInternet.visibility = View.GONE
             requestForWebview()
         }
+
     }
 
 
@@ -100,7 +102,7 @@ class MainActivity : Activity() {
         if (internetCheck(mContext)) {
             mWebView.visibility = View.VISIBLE
             layoutNoInternet.visibility = View.GONE
-            mWebView.loadUrl(URL)
+            mWebView.loadUrl(endpoint)
         } else {
             prgs.visibility = View.GONE
             mWebView.visibility = View.GONE
@@ -192,7 +194,6 @@ class MainActivity : Activity() {
                 } else {
                     intentArray = arrayOfNulls(0)
                 }
-
                 val chooserIntent = Intent(Intent.ACTION_CHOOSER)
                 chooserIntent.putExtra(Intent.EXTRA_INTENT, contentSelectionIntent)
                 chooserIntent.putExtra(Intent.EXTRA_TITLE, "Image Chooser")

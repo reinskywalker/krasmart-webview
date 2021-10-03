@@ -38,9 +38,7 @@ import javax.crypto.spec.SecretKeySpec
 class MainActivity : Activity() {
     private lateinit var mContext: Context
     internal var mLoaded = false
-
-    internal var URL = "https://www.infixsoft.com/"
-
+    internal var URL = "http://202.149.87.50:30083/"
     private var mCameraPhotoPath: String? = null
     private var mFilePathCallback: ValueCallback<Array<Uri>>? = null
     internal var doubleBackToExitPressedOnce = false

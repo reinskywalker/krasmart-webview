@@ -42,7 +42,7 @@ class MainActivity : Activity() {
     private var endpoint = "http://202.149.87.50:30083/"
     private var mCameraPhotoPath: String? = null
     private var mFilePathCallback: ValueCallback<Array<Uri>>? = null
-     private var doubleBackToExitPressedOnce = false
+    private var doubleBackToExitPressedOnce = false
     private lateinit var btnTryAgain: Button
     private lateinit var mWebView: WebView
     private lateinit var prgs: ProgressBar
